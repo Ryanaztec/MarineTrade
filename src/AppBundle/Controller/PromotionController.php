@@ -2,8 +2,8 @@
 
 namespace App\AppBundle\Controller;
 
-use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
-use AppBundle\Entity\Category;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController as BaseAdminController;
+use App\AppBundle\Entity\Category;
 
 /**
  * This is an example of how to use a custom controller for a backend entity.
