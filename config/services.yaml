@@ -12,7 +12,3 @@ services:
     App\:
         resource: '../src/*'
         exclude: '../src/{Entity,Migrations,Repository,Tests}'
-
-    App\Controller\:
-        resource: '../src/Controller'
-        tags: ['controller.service_arguments']
