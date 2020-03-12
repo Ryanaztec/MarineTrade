@@ -1,0 +1,37 @@
+# This file sets the configuration of the 'User' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+  entities:
+    CategoryPrice:
+      class: App\AppBundle\Entity\CategoryPrice
+      list:
+        title: 'Prices by Category'
+        fields:
+          - category
+          - urgent7
+          - urgent14
+          - urgent21
+          - spotlight7
+          - spotlight14
+          - spotlight21
+          - highlight7
+          - highlight14
+          - highlight21
+      form:
+        fields:
+          - category
+          - urgent7
+          - urgent14
+          - urgent21
+          - spotlight7
+          - spotlight14
+          - spotlight21
+          - highlight7
+          - highlight14
+          - highlight21

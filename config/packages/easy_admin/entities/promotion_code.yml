@@ -1,0 +1,27 @@
+# This file sets the configuration of the 'User' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+  entities:
+    PromotionCode:
+      class: App\AppBundle\Entity\PromotionCode
+      list:
+        title: "Promotion codes"
+        fields:
+          - code
+          - { property: 'used', type: 'boolean' }
+          - multipleUses
+          - startDate
+          - endDate
+        form:
+          fields:
+            - code
+            - { property: 'used', type_options: { disabled: true } }
+            - multipleUses
+            - startDate
+            - endDate

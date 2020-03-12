@@ -27,5 +27,9 @@
 easy_admin:
     design:
         menu:
-            - { label: 'User', entity: 'User', icon: 'users' }
+            - { label: 'User', entity: 'User', icon: 'users', default: true }
             - { label: 'Category', entity: 'Category', icon: 'tags'}
+            - { label: 'Promotions', entity: 'Promotion', icon: 'product-hunt'}
+            - { label: 'Price for each Category', entity: 'CategoryPrice', icon: 'money'}
+            - { label: 'Items', entity: 'Item', icon: 'navicon'}
+            - { label: 'Promotion codes', entity: 'PromotionCode', icon: 'barcode'}

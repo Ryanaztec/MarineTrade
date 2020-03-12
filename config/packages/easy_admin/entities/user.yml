@@ -23,6 +23,10 @@ easy_admin:
                     - is_active
                     - first_name
                     - last_name
+            form:
+                fields:
+                    - { property: 'devices', type: 'easyadmin_autocomplete' }
+                    - { property: 'bids', type: 'easyadmin_autocomplete' }
             edit:
                 fields:
                     - { property: 'id', type_options: { disabled: true } }
