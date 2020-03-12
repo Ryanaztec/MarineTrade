@@ -40,6 +40,9 @@ class HashPasswordListener implements EventSubscriber {
         if (!$entity instanceof User) {
             return;
         }
+        if (strpos($entity->getPassword(), '==') !== false) {
+            return;
+        }
         $this->encodePassword($entity);
         // necessary to force the update to see the change
         $em = $args->getEntityManager();

@@ -234,7 +234,7 @@ class UserController extends BaseAdminController
         }
 
         $user = $em->getRepository('AppBundle:User')->find($id);
-        $user->setDeactivated(true);
+        $user->setIsDeactivated(true);
         $user->setTrendingScore(0);
         //$user->setDeleted(new \DateTime());
         $user->setUpdated(new \DateTime());

@@ -73,9 +73,10 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
     private $isActive;
 
     /**
+     * @var boolean
      * @ORM\Column(name="is_deactivated", type="boolean")
      */
-    private $deactivated = false;
+    private $isDeactivated = false;
 
     /**
      * @var string
@@ -219,14 +220,14 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
      */
 
     /**
-     * @var integer
-     * @ORM\Column(name="user_verified", type="smallint", nullable=true)
+     * @var boolean
+     * @ORM\Column(name="user_verified", type="boolean", nullable=true)
      */
     private $user_verified;
 
     /**
-     * @var integer
-     * @ORM\Column(name="email_verified", type="smallint", nullable=true)
+     * @var boolean
+     * @ORM\Column(name="email_verified", type="boolean", nullable=true)
      */
     private $email_verified;
 
@@ -243,8 +244,8 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
     private $used_codes;
 
     /**
-     * @var integer
-     * @ORM\Column(name="sms_verified", type="smallint", nullable=true)
+     * @var boolean
+     * @ORM\Column(name="sms_verified", type="boolean", nullable=true)
      */
     private $sms_verified;
 
@@ -409,21 +410,19 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
     }
 
     /**
-     * @return mixed
+     * @param bool $isDeactivated
+     * @return $this
      */
-    public function isDeactivated()
-    {
-        return (bool) $this->deactivated;
+    public function setIsDeactivated(bool $isDeactivated) {
+        $this->isDeactivated = $isDeactivated;
+        return $this;
     }
 
     /**
-     * @param mixed $deactivated
-     * @return User
+     * @return bool
      */
-    public function setDeactivated($deactivated)
-    {
-        $this->deactivated = (bool) $deactivated;
-        return $this;
+    public function getIsDeactivated() {
+        return $this->isDeactivated;
     }
 
     /**
@@ -899,7 +898,7 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
     }
 
     /**
-     * @return int
+     * @return bool
      */
     public function getUserVerified() {
         return $this->user_verified;
@@ -915,7 +914,7 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
     }
 
     /**
-     * @return int
+     * @return bool
      */
     public function getEmailVerified() {
         return $this->email_verified;
@@ -977,7 +976,7 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
     }
 
     /**
-     * @return int
+     * @return bool
      */
     public function getSmsVerified() {
         return $this->sms_verified;
