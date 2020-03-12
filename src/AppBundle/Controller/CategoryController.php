@@ -2,6 +2,7 @@
 
 namespace App\AppBundle\Controller;
 
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController as BaseAdminController;
 use App\AppBundle\Entity\Category;
 
@@ -11,8 +12,19 @@ use App\AppBundle\Entity\Category;
 class CategoryController extends BaseAdminController
 {
 
+    public $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder) {
+        $this->encoder = $encoder;
+    }
+
     public function deleteCategoryAction()
     {
+        $user = $this->getDoctrine()->getManager()->getRepository('AppBundle:User')->find(1);
+        /**
+         * @var UserPasswordEncoder $encoder;
+         */
+        var_dump($this->encoder->encodePassword($user, '2rpcpAgfHAuTJU7z'));die;
         $id = $this->request->query->get('id');
         $em = $this->getDoctrine()->getManager();
         $qb = $em->getRepository('AppBundle:Category')->createQueryBuilder('c');

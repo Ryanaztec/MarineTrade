@@ -7,10 +7,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Yacht\ApiBundle\Security\Authorization\UserOwnableInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * User
@@ -23,6 +25,8 @@ use Yacht\ApiBundle\Security\Authorization\UserOwnableInterface;
  */
 class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableInterface
 {
+    public $encoder;
+
     /**
      * @var integer
      *
@@ -76,7 +80,7 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
     /**
      * @var string
      *
-     * @ORM\Column(name="first_name", type="string", length=128)
+     * @ORM\Column(name="first_name", type="string", length=128, nullable=false)
      */
     private $firstName;
 
@@ -211,7 +215,40 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
 
     /**
      * User constructor.
+     * @throws \Exception
      */
+
+    /**
+     * @var integer
+     * @ORM\Column(name="user_verified", type="smallint", nullable=true)
+     */
+    private $user_verified;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="email_verified", type="smallint", nullable=true)
+     */
+    private $email_verified;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="boosts", type="integer", nullable=false)
+     */
+    private $boosts = 0;
+
+    /**
+     * @var string
+     * @ORM\Column(name="used_codes", type="text", nullable=false)
+     */
+    private $used_codes;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="sms_verified", type="smallint", nullable=true)
+     */
+    private $sms_verified;
+
+
     public function __construct()
     {
         $this->salt = md5(random_bytes(10));
@@ -861,9 +898,89 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getUserVerified() {
+        return $this->user_verified;
+    }
+
+    /**
+     * @param int $user_verified
+     * @return $this
+     */
+    public function setUserVerified(int $user_verified) {
+        $this->user_verified = $user_verified;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEmailVerified() {
+        return $this->email_verified;
+    }
+
+    /**
+     * @param int $email_verified
+     * @return $this
+     */
+    public function setEmailVerified(int $email_verified) {
+        $this->email_verified = $email_verified;
+        return $this;
+    }
+
     public function isOwnedBy(User $user)
     {
         return $this->isEqualTo($user);
+    }
+
+    /**
+     * @param int $boosts
+     * @return $this
+     */
+    public function setBoosts(int $boosts) {
+        $this->boosts = $boosts;
+        return $this;
+    }
+
+    /**
+     * @param string $used_codes
+     * @return $this
+     */
+    public function setUsedCodes(string $used_codes) {
+        $this->used_codes = $used_codes;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBoosts() {
+        return $this->boosts;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsedCodes() {
+        return $this->used_codes;
+    }
+
+    /**
+     * @param int $sms_verified
+     * @return $this
+     */
+    public function setSmsVerified(int $sms_verified) {
+        $this->sms_verified = $sms_verified;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSmsVerified() {
+        return $this->sms_verified;
     }
 
     public function isEqualTo(UserInterface $user)

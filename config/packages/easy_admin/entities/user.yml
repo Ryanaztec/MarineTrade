@@ -30,8 +30,9 @@ easy_admin:
           - roles
           - { property: 'is_active', type: 'checkbox' }
           - { property: 'is_deactivated', type: 'checkbox' }
-          # - { property: 'is_deactivated', type: 'checkbox' }
-          # - { property: 'is_deactivated', type: 'checkbox' }
+          - { property: 'user_verified', type: 'checkbox' }
+          - { property: 'email_verified', type: 'checkbox' }
+          - { property: 'sms_verified', type: 'checkbox' }
           - first_name
           - last_name
           - phone
@@ -48,6 +49,8 @@ easy_admin:
           - { property: 'following', type: 'easyadmin_autocomplete' }
           - { property: 'messages_sent', type: 'easyadmin_autocomplete' }
           - { property: 'messages_received', type: 'easyadmin_autocomplete' }
+          - boosts
+          - used_codes
       edit:
         fields:
           - { property: 'id', type_options: { disabled: true } }

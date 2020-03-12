@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController as BaseAdminC
 use App\AppBundle\Entity\Category;
 use App\AppBundle\Entity\Item;
 use App\AppBundle\Entity\Search;
+use Symfony\Component\HttpFoundation\Request;
 
 
 /**
@@ -252,5 +253,11 @@ class UserController extends BaseAdminController
             'entity' => $this->request->query->get('entity'),
         ));
     }
+
+//    public function editAction() {
+//        $all = $this->request->request->all();
+//        var_dump($all['user']);die;
+//    }
+
 }
 

@@ -17,3 +17,8 @@ services:
             class: App\AppBundle\Listener\CacheClearListener
             tags:
                 - { name: kernel.event_listener, event: easy_admin.post_update, method: onPostUpdate }
+    app.hash_password_listener:
+        class: App\AppBundle\Listener\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
