@@ -12,3 +12,8 @@ services:
     App\:
         resource: '../src/*'
         exclude: '../src/{Entity,Migrations,Repository,Tests}'
+
+    app.cache_clear_listener:
+            class: App\AppBundle\Listener\CacheClearListener
+            tags:
+                - { name: kernel.event_listener, event: easy_admin.post_update, method: onPostUpdate }

@@ -15,5 +15,8 @@
 # The configuration options are explained in detail in the bundle documentation,
 # which is published at https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html
 #
+easy_admin:
+    show:
+        max_results: 20
 imports:
     - { resource: easy_admin/ }

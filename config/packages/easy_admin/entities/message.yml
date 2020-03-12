@@ -1,6 +1,4 @@
-# This file sets the configuration options related to the backend design.
-# If your backend is simple, you probably can rely on the default values of
-# the options and just define the value of the 'site_name' option.
+# This file sets the configuration of the 'User' entity.
 #
 # NOTE: this demo application splits the backend configuration into several
 # small files for educational purposes. In your application you can put the
@@ -9,8 +7,6 @@
 # The configuration options are explained in detail in the bundle documentation,
 # which is published at https://github.com/javiereguiluz/EasyAdminBundle
 easy_admin:
-    site_name: 'Marine Trade Backend'
-    design:
-        assets:
-            css:
-                - '/bundles/app/stylesheets/demo.css'
+  entities:
+    Message:
+      class: App\AppBundle\Entity\Message

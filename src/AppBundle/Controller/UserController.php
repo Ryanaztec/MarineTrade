@@ -247,7 +247,7 @@ class UserController extends BaseAdminController
         }
 
         // redirect to the 'list' view of the given entity
-        return $this->redirectToRoute('admin', array(
+        return $this->redirectToRoute('easyadmin', array(
             'view' => 'list',
             'entity' => $this->request->query->get('entity'),
         ));

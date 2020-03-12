@@ -221,7 +221,7 @@ class User implements AdvancedUserInterface, EquatableInterface //, UserOwnableI
         $this->devices = new ArrayCollection();
         $this->addresses = new ArrayCollection();
         $this->items = new ArrayCollection();
-        $this->favoriteItems = new ArrayCollection();
+//        $this->favoriteItems = new ArrayCollection();
         $this->bids = new ArrayCollection();
         $this->syncs = new ArrayCollection();
         $this->followers = new ArrayCollection();

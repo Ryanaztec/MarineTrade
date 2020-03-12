@@ -7,36 +7,49 @@
 # The configuration options are explained in detail in the bundle documentation,
 # which is published at https://github.com/javiereguiluz/EasyAdminBundle
 easy_admin:
-    entities:
-        User:
-            class: App\AppBundle\Entity\User
-            controller: App\AppBundle\Controller\UserController
-            list:
-                title: 'Most recent customers'
-                actions:
-                    - edit
-                    - { name: 'deactivate', label: 'Deactivate' }
-                    - '-delete'
-                fields:
-                    - id
-                    - email
-                    - is_active
-                    - first_name
-                    - last_name
-            form:
-                fields:
-                    - { property: 'devices', type: 'easyadmin_autocomplete' }
-                    - { property: 'bids', type: 'easyadmin_autocomplete' }
-            edit:
-                fields:
-                    - { property: 'id', type_options: { disabled: true } }
-                    - email
-                    - is_active
-                    - first_name
-                    - last_name
-                    - password
-                    - salt
-                    - { property: 'devices', type: 'easyadmin_autocomplete' }
-                    - { property: 'bids', type: 'easyadmin_autocomplete' }
-            Item:
-                class: AppBundle\Entity\Item
+  entities:
+    User:
+      class: App\AppBundle\Entity\User
+      controller: App\AppBundle\Controller\UserController
+      list:
+        title: 'Most recent customers'
+        actions:
+          - edit
+          - { name: 'deactivate', label: 'Deactivate' }
+          - '-delete'
+        fields:
+          - id
+          - email
+          - is_active
+          - first_name
+          - last_name
+      form:
+        fields:
+          - email
+          - password
+          - roles
+          - { property: 'is_active', type: 'checkbox' }
+          - { property: 'is_deactivated', type: 'checkbox' }
+          - first_name
+          - last_name
+          - phone
+          - trending_score
+          - created
+          - updated
+          - { property: 'lastDevice', type: 'easyadmin_autocomplete' }
+          - { property: 'devices', type: 'easyadmin_autocomplete' }
+          - { property: 'addresses', type: 'easyadmin_autocomplete' }
+          - { property: 'items', type: 'easyadmin_autocomplete' }
+          - { property: 'favorite_items', type: 'easyadmin_autocomplete', type_options: { class: 'App\AppBundle\Entity\Item' }  }
+          #                    - favorite_items
+          - { property: 'bids', type: 'easyadmin_autocomplete' }
+          - { property: 'syncs', type: 'easyadmin_autocomplete' }
+          - { property: 'followers', type: 'easyadmin_autocomplete' }
+          - { property: 'following', type: 'easyadmin_autocomplete' }
+          - { property: 'messages_sent', type: 'easyadmin_autocomplete' }
+          - { property: 'messages_received', type: 'easyadmin_autocomplete' }
+      edit:
+        fields:
+          - { property: 'id', type_options: { disabled: true } }
+      Item:
+        class: App\AppBundle\Entity\Item
