@@ -30,6 +30,8 @@ easy_admin:
           - roles
           - { property: 'is_active', type: 'checkbox' }
           - { property: 'is_deactivated', type: 'checkbox' }
+          # - { property: 'is_deactivated', type: 'checkbox' }
+          # - { property: 'is_deactivated', type: 'checkbox' }
           - first_name
           - last_name
           - phone
@@ -40,8 +42,6 @@ easy_admin:
           - { property: 'devices', type: 'easyadmin_autocomplete' }
           - { property: 'addresses', type: 'easyadmin_autocomplete' }
           - { property: 'items', type: 'easyadmin_autocomplete' }
-          - { property: 'favorite_items', type: 'easyadmin_autocomplete', type_options: { class: 'App\AppBundle\Entity\Item' }  }
-          #                    - favorite_items
           - { property: 'bids', type: 'easyadmin_autocomplete' }
           - { property: 'syncs', type: 'easyadmin_autocomplete' }
           - { property: 'followers', type: 'easyadmin_autocomplete' }
