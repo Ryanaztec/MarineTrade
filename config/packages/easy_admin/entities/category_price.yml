@@ -12,6 +12,7 @@ easy_admin:
       class: App\AppBundle\Entity\CategoryPrice
       list:
         title: 'Prices by Category'
+        max_results: 20
         fields:
           - category
           - urgent7

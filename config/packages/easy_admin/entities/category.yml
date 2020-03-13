@@ -15,6 +15,7 @@ easy_admin:
             class: App\AppBundle\Entity\Category
             controller: App\AppBundle\Controller\CategoryController
             list:
+                max_results: 20
                 fields:
                     - id
                     - title

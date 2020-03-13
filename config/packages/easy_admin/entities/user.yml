@@ -13,6 +13,7 @@ easy_admin:
       controller: App\AppBundle\Controller\UserController
       list:
         title: 'Most recent customers'
+        max_results: 20
         actions:
           - edit
           - { name: 'deactivate', label: 'Deactivate' }

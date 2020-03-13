@@ -12,6 +12,7 @@ easy_admin:
       class: App\AppBundle\Entity\PromotionCode
       list:
         title: "Promotion codes"
+        max_results: 20
         fields:
           - code
           - { property: 'used', type: 'boolean' }
