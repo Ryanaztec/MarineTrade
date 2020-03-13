@@ -39,8 +39,9 @@ easy_admin:
           - trending_score
           - created
           - updated
-          - { property: 'lastDevice', type: 'easyadmin_autocomplete' }
-          - { property: 'devices', type: 'easyadmin_autocomplete' }
+          - { property: 'favoriteItems', type: 'easyadmin_autocomplete'}
+          - { property: 'lastDevice', type: 'easyadmin_autocomplete'}
+          - { property: 'devices', type: 'easyadmin_autocomplete', type_options: { by_reference: false } }
           - { property: 'addresses', type: 'easyadmin_autocomplete' }
           - { property: 'items', type: 'easyadmin_autocomplete' }
           - { property: 'bids', type: 'easyadmin_autocomplete' }
